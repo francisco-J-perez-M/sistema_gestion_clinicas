@@ -15,6 +15,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Email</th>
@@ -25,6 +26,13 @@
                 @foreach ($pacientes as $paciente)
                     <tr>
                         <td>{{ $paciente->id }}</td>
+                        <td>
+                            @if ($paciente->foto)
+                                <img src="{{ asset('storage/' . $paciente->foto) }}" alt="Foto de {{ $paciente->nombres }}" width="50">
+                            @else
+                                No disponible
+                            @endif
+                        </td>
                         <td>{{ $paciente->nombres }}</td>
                         <td>{{ $paciente->apellido_paterno }} {{ $paciente->apellido_materno }}</td>
                         <td>{{ $paciente->email }}</td>

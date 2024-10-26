@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Agregar Paciente</h1>
 
-        <form action="{{ route('pacientes.store') }}" method="POST">
+        <form action="{{ route('pacientes.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nombres">Nombres</label>
@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                 <label for="tipo_sangre">Tipo de Sangre</label>
-                <select name="tipo_sangre" class="form-control" required>
+                <select name="tipo_sangre" class="form-control">
                     <option value="">Seleccione un tipo de sangre</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -63,6 +63,10 @@
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" class="form-control" accept="image/*">
             </div>
 
             <button type="submit" class="btn btn-success">Guardar</button>

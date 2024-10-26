@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Editar Paciente</h1>
 
-        <form action="{{ route('pacientes.update', $paciente->id) }}" method="POST">
+        <form action="{{ route('pacientes.update', $paciente->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -55,6 +55,10 @@
             <div class="form-group">
                 <label for="tipo_sangre">Tipo de Sangre</label>
                 <input type="text" name="tipo_sangre" class="form-control" value="{{ $paciente->tipo_sangre }}">
+            </div>
+            <div class="form-group">
+                <label for="foto">Actualizar Foto</label>
+                <input type="file" name="foto" class="form-control" accept="image/*">
             </div>
 
             <button type="submit" class="btn btn-success">Actualizar</button>

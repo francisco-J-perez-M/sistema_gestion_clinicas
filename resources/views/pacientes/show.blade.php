@@ -16,6 +16,12 @@
             <li>Peso: {{ $paciente->peso }} kg</li>
             <li>Altura: {{ $paciente->altura }} m</li>
             <li>Tipo de Sangre: {{ $paciente->tipo_sangre }}</li>
+            @if ($paciente->foto)
+                <li>Foto:
+                    <br>
+                    <img src="{{ asset('storage/' . $paciente->foto) }}" alt="Foto del paciente" width="150">
+                </li>
+            @endif
         </ul>
 
         <a href="{{ route('pacientes.index') }}" class="btn btn-secondary">Volver</a>
