@@ -23,10 +23,10 @@
                         <a class="nav-link" href="{{ route('medicos.index') }}">Médicos</a> <!-- Ruta a la lista de médicos -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Medicamentos</a>
+                        <a class="nav-link" href="{{ route('medicamentos.index') }}">Medicamentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Citas</a>
+                        <a class="nav-link" href="{{ route('citas.index') }}">Citas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Recetas</a>
