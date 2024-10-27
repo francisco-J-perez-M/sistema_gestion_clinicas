@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\MedicoController;
 
 Route::get('/', [PacienteController::class, 'index']);
 
@@ -25,3 +26,12 @@ Route::put('pacientes/{paciente}', [PacienteController::class, 'update'])->name(
 
 // Ruta para eliminar un paciente
 Route::delete('pacientes/{paciente}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
+
+
+Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index');
+Route::get('/medicos/create', [MedicoController::class, 'create'])->name('medicos.create');
+Route::post('/medicos', [MedicoController::class, 'store'])->name('medicos.store');
+Route::get('/medicos/{id}', [MedicoController::class, 'show'])->name('medicos.show');
+Route::put('/medicos/{id}', [MedicoController::class, 'update'])->name('medicos.update');
+Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medicos.destroy');
+Route::get('/medicos/{id}/edit', [MedicoController::class, 'edit'])->name('medicos.edit');
