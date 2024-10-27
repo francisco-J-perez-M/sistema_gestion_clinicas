@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('citas', function (Blueprint $table) {
+            $table->id(); // Clave primaria
+            $table->unsignedBigInteger('id_medico'); // ID del médico
+            $table->unsignedBigInteger('id_paciente'); // ID del paciente
+            $table->dateTime('fecha_hora'); // Fecha y hora de la cita
+            $table->timestamps(); // Timestamps para created_at y updated_at
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('citas');
     }
 };
