@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\MedicamentoController;
 
 Route::get('/', [PacienteController::class, 'index']);
 
@@ -56,3 +57,16 @@ Route::put('/citas/{id}', [CitaController::class, 'update'])->name('citas.update
 
 // Eliminar una cita
 Route::delete('/citas/{id}', [CitaController::class, 'destroy'])->name('citas.destroy');
+
+
+
+// Rutas para el recurso de Medicamento
+Route::get('medicamentos', [MedicamentoController::class, 'index'])->name('medicamentos.index'); // Listar medicamentos
+Route::get('medicamentos/create', [MedicamentoController::class, 'create'])->name('medicamentos.create'); // Mostrar formulario de creación
+Route::post('medicamentos', [MedicamentoController::class, 'store'])->name('medicamentos.store'); // Almacenar nuevo medicamento
+Route::get('medicamentos/{id}/edit', [MedicamentoController::class, 'edit'])->name('medicamentos.edit'); // Mostrar formulario de edición
+Route::put('medicamentos/{id}', [MedicamentoController::class, 'update'])->name('medicamentos.update'); // Actualizar medicamento
+Route::delete('medicamentos/{id}', [MedicamentoController::class, 'destroy'])->name('medicamentos.destroy'); // Eliminar medicamento
+Route::get('medicamentos/{medicamento}', [MedicamentoController::class, 'show'])->name('medicamentos.show');
+
+
