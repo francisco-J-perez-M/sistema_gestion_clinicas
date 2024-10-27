@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\CitaController;
 
 Route::get('/', [PacienteController::class, 'index']);
 
@@ -27,7 +28,6 @@ Route::put('pacientes/{paciente}', [PacienteController::class, 'update'])->name(
 // Ruta para eliminar un paciente
 Route::delete('pacientes/{paciente}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
-
 Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index');
 Route::get('/medicos/create', [MedicoController::class, 'create'])->name('medicos.create');
 Route::post('/medicos', [MedicoController::class, 'store'])->name('medicos.store');
@@ -35,3 +35,24 @@ Route::get('/medicos/{id}', [MedicoController::class, 'show'])->name('medicos.sh
 Route::put('/medicos/{id}', [MedicoController::class, 'update'])->name('medicos.update');
 Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medicos.destroy');
 Route::get('/medicos/{id}/edit', [MedicoController::class, 'edit'])->name('medicos.edit');
+
+// Mostrar una lista de citas
+Route::get('/citas', [CitaController::class, 'index'])->name('citas.index');
+
+// Mostrar el formulario para crear una nueva cita
+Route::get('/citas/create', [CitaController::class, 'create'])->name('citas.create');
+
+// Crear una nueva cita
+Route::post('/citas', [CitaController::class, 'store'])->name('citas.store');
+
+// Mostrar una cita específica
+Route::get('/citas/{id}', [CitaController::class, 'show'])->name('citas.show');
+
+// Mostrar el formulario para editar una cita existente
+Route::get('/citas/{id}/edit', [CitaController::class, 'edit'])->name('citas.edit');
+
+// Actualizar una cita existente
+Route::put('/citas/{id}', [CitaController::class, 'update'])->name('citas.update');
+
+// Eliminar una cita
+Route::delete('/citas/{id}', [CitaController::class, 'destroy'])->name('citas.destroy');
